@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "BitRate",
+  "description": "This is a description to be filled out later",
+  "version": "0.2",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}
