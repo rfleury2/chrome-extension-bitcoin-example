@@ -1,8 +1,10 @@
-A friend of mine recently approached me with an idea for a Chrome extension to help manage his time on the internet.  At first I was hesitant to devote any time to learning how to create a Chrome extension, expecting a reasonably steep learning curve for a niche skill.  I figured learning the basics of how to build Chrome extensions would take many hours of hard work and the typical set up headaches I usually get when diving into a new region of web development.  I was wrong.
+A friend of mine recently approached me with an idea for a Chrome extension to help manage his time on the internet.  At first I resisted.  I was hesitant to devote much time to learning how to create a Chrome extension - Chrome extensions are a relatively niche corner of web development and I suspected might not be worth the time to overcome the learning curve.  I figured learning the basics on building Chrome extensions would take many hours of hard work just to get started, serving up the motivation-killing mountain of esoteric issues that often come up when starting work with a new technology.
+
+![That was easier than I expected!](/img/easier_than_expected.jpg)
 
 Turns out, I was pleasantly surprised by how fast getting started was.  As a result, I decided to document my journey in order to encourage those interested in diving into the world of building Chrome extensions a head start to create their own.
 
-### Structure of an extension
+### Building the file structure
 
 There is very little configuration required to get a Chrome extension off the ground.  Google expects a file named ```manifest.json```, which contains a series of configuration options.  Here's a naked example Google provides.
 
