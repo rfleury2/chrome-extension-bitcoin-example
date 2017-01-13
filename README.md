@@ -34,6 +34,21 @@ There is an abundance of options to set through manifest.json.  I won't go into 
 
 For this example, the browserAction->default_popup option loads a file called ```popup.html```.  This popup.html file serves as the application's main view and is a standard web view in HTML.  This means I can use it to load CSS files to style the popup, require external modules, and load the application's own logic (implemented in JavaScript).  For the application's internal logic, I created a file ```popup.js``` (I'll show this shortly).  I also created a directory /packages to load external code and /img to hold images.  I downloaded [jQuery from Google](https://developers.google.com/speed/libraries/#jquery), and added the file to the /packages directory.  I then added an image at ```img/icon.png``` and a file ```popup.css``` ([see on GitHub](https://github.com/rfleury2/chrome-extension-bitcoin-example/blob/master/popup.css)) for basic styling.
 
+Here's what the directory structure looks like:
+```
+.
+├── README.md
+├── img
+│   ├── icon.png
+├── manifest.json
+├── packages
+│   └── jquery-3.1.1.min.js
+├── popup.css
+├── popup.html
+└── popup.js
+```
+
+And how to require the files in popup.html:
 ```html
 <head>
   ...
