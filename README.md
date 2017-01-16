@@ -30,9 +30,7 @@ There is minimal configuration required to get a Chrome extension off the ground
 ```
 NOTE: I changed icon.png to img/icon.png to match my favored file structure (see below)
 
-There is an abundance of options to set through manifest.json.  I won't go into these options, but [see the full documentation](https://developer.chrome.com/extensions/manifest) to learn more about each option.
-
-For this example, the browserAction->default_popup option loads a file called ```popup.html```.  This popup.html file serves as the application's main view and is a standard web view in HTML.  This means I can use it to load CSS files to style the popup, require external modules, and load the application's own logic (implemented in JavaScript).  For the application's internal logic, I created a file ```popup.js``` (I'll show this shortly).  I also created a directory /packages to load external code and /img to hold images.  I downloaded [jQuery from Google](https://developers.google.com/speed/libraries/#jquery), and added the file to the /packages directory.  I then added an image at ```img/icon.png``` and a file ```popup.css``` ([see on GitHub](https://github.com/rfleury2/chrome-extension-bitcoin-example/blob/master/popup.css)) for basic styling.
+There are dozens of options to set - [see the full documentation](https://developer.chrome.com/extensions/manifest).  For the bare bones example, the "browser_action"->"default_popup" option loads a file called ```popup.html```, which will be the home for all subsequent logic and styling.  The popup.html file acts as any ordinary web html file, meaning I can load CSS files to style the popup, add JavaScript modules and the extension's own JavaScript logic.  All the files are loaded through relative paths from the popup.html file, so you can create your own directory structure for your extension's files.  I've decided to create a directory (/packages) to separate any external code from the application's own code.  I downloaded [jQuery from Google](https://developers.google.com/speed/libraries/#jquery), and added the file to the /packages directory.  I added an image at ```icon.png``` and a file ```popup.css``` for basic styling.  See the [full version on GitHub](https://github.com/rfleury2/chrome-extension-bitcoin-example)
 
 Here's what the directory structure looks like:
 ```
@@ -61,7 +59,7 @@ And how to require the files in popup.html:
 
 ### Implementing a Bitcoin rate finder
 
-From time to time, I like to check in on the US Dollar to Bitcoin exchange rate.  What if I don't want to go to a Bitcoin exchange to find the exchange rate?  Let's use a Google Chrome extension to give us the most recent Bitcoin to US Dollar exchange rate.
+From time to time, I like to check in on the US Dollar to Bitcoin exchange rate.  What if instead of going to the Bitcoin exchange to find the exchange rate, I can quickly check using a Chrome extension?  Let's build an extension to give us the most recent Bitcoin to US Dollar exchange rate.
 
 First, I added a button to popup.html to trigger a request for the latest rate:
 
@@ -73,7 +71,7 @@ First, I added a button to popup.html to trigger a request for the latest rate:
 </body>
 ```
 
-Popup.js is the place to implement the application's logic.  I used jQuery and AJAX to implement some simple logic to first request the exchange rate and then display it.  Here's roughly the logic (also follow the numbered comments in the code):
+Popup.js is the place to implement the application's logic.  Below I've implemented some simple logic to request and display the exchange rate using jQuery and AJAX.  Here's roughly the logic (also follow the numbered comments in the code):
 
 1.  The application listens for the popup being activated
 2.  The loaded application popup view has a button with id ```#get-rate-button``` bound to an event listener waiting for a button click
